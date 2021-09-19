@@ -3,6 +3,7 @@
 #include <locale.h>
 
 #include "../include/fileUtils.h"
+#include "../include/split.h"
 
 int main() {
     /*printf("This program reads all strings from a file, then prints them to standard output\n"
@@ -12,13 +13,29 @@ int main() {
         printf("There was an error reading file path\n");
         return 1;
     }*/
-    setlocale (LC_ALL, "ru");
-    setlocale(LC_ALL, "cp1251");
-    char *textBuffer = readFile("onegin.txt");
-    const int ret = cleanFile("onegin.txt");
 
-    if (textBuffer != nullptr) {
-//        printf("%s", textBuffer);
+    if (cleanFile("onegin.txt") == 0) {
+        printf("error\n");
+        return EXIT_FAILURE;
+    } 
+
+    size_t bufSize = 0;
+    char *textBuffer = readFile("onegin_clean.txt", &bufSize);
+    if (textBuffer == nullptr) {
+        return EXIT_FAILURE;
+    }
+
+    size_t numLines = 0;
+    line *array = splitBuffer(textBuffer, bufSize, &numLines); 
+    if (array == nullptr) {
+        free(textBuffer);
+        return EXIT_FAILURE;
+    }
+
+    for (size_t i = 0; i < numLines; i++) {
+        printf("%s\n", array[i].ptr);
     }
     free(textBuffer);
+    free(array);
+    return EXIT_SUCCESS;
 }

@@ -12,7 +12,7 @@ size_t getFileSize(const char *filePath) {
     return fileStats.st_size;
 }
 
-char *readFile(const char *filePath) {
+char *readFile(const char *filePath, size_t *size) {
     const size_t fileSize = getFileSize(filePath);
 
     FILE *fileToRead = fopen(filePath, "r");
@@ -20,7 +20,7 @@ char *readFile(const char *filePath) {
         printf("There was an error opening file %s : %s\n", filePath, strerror(errno));
         return nullptr;
     }
-    char *readBuf = (char *)calloc(fileSize + 1, 1);
+    char *readBuf = (char *)calloc(fileSize + 1, sizeof(*readBuf));
     if (readBuf == nullptr) {
         printf("There was an error allocating memory : %s\n", strerror(errno));
         return nullptr;
@@ -37,6 +37,7 @@ char *readFile(const char *filePath) {
         return nullptr; 
     }
     readBuf[fileSize] = '\0';
+    *size = fileSize + 1;
     return readBuf;
 }
 
@@ -45,7 +46,7 @@ bool isSpace(const char c) {
 }
 
 char *cleanBuffer(const char *readBuf, const size_t bufSize, size_t *numCleanBytes) {
-    char *writeBuf = (char *)calloc(bufSize, 1); 
+    char *writeBuf = (char *)calloc(bufSize, sizeof(*writeBuf)); 
     if (writeBuf == nullptr) {
         printf("There was an error allocating memory : %s\n", strerror(errno));
         return 0;
@@ -82,7 +83,8 @@ char *cleanBuffer(const char *readBuf, const size_t bufSize, size_t *numCleanByt
 int cleanFile(const char *filePath) {
     const size_t fileSize = getFileSize(filePath);
 
-    char *readBuf = readFile(filePath); //fileSize + 1
+    size_t bufSize = 0;
+    char *readBuf = readFile(filePath, &bufSize); //fileSize + 1
     if (readBuf == nullptr) {
         printf("There was an error reading file %s : %s\n", filePath, strerror(errno));
         return 0;

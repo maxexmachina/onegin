@@ -12,6 +12,6 @@ size_t getFileSize(const char *filePath);
 //!
 //! @return     null-terminated char buffer in case of success, nullptr otherwise
 //------------------------------------------------------------ 
-char *readFile(const char *filePath);
+char *readFile(const char *filePath, size_t *size);
 
 int cleanFile(const char *filePath);
