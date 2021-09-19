@@ -4,6 +4,7 @@
 
 #include "../include/fileUtils.h"
 #include "../include/split.h"
+#include "../include/sort.h"
 
 int main() {
     /*printf("This program reads all strings from a file, then prints them to standard output\n"
@@ -32,9 +33,11 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    for (size_t i = 0; i < numLines; i++) {
+    for (size_t i = 0; i < 10; i++) {
         printf("%s\n", array[i].ptr);
     }
+    printf("%s\n%s\n%d\n", array[4].ptr, array[2].ptr, myStrcmp(array[4].ptr, array[2].ptr));
+
     free(textBuffer);
     free(array);
     return EXIT_SUCCESS;
