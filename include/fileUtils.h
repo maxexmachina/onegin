@@ -1,3 +1,10 @@
+#include <sys/types.h>
+
+bool isSpace(const char c);
+
+char *cleanBuffer(const char *readBuf, const size_t bufSize, size_t *numCleanBytes);
+
+size_t getFileSize(const char *filePath);
 //------------------------------------------------------------ 
 //! Reads text from a file and returns a null-terminated buffer 
 //!

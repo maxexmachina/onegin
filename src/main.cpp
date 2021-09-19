@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <locale.h>
 
 #include "../include/fileUtils.h"
@@ -14,8 +15,10 @@ int main() {
     setlocale (LC_ALL, "ru");
     setlocale(LC_ALL, "cp1251");
     char *textBuffer = readFile("onegin.txt");
+    const int ret = cleanFile("onegin.txt");
 
     if (textBuffer != nullptr) {
-        printf("%s", textBuffer);
+//        printf("%s", textBuffer);
     }
+    free(textBuffer);
 }
