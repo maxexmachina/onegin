@@ -83,7 +83,7 @@ char *cleanBuffer(const char *readBuf, const size_t bufSize, size_t *numCleanByt
     return writeBuf;
 }
 
-int cleanFile(const char *filePath) {
+int cleanFile(const char *filePath, const char *cleanPath) {
     const size_t fileSize = getFileSize(filePath);
 
     size_t bufSize = 0;
@@ -101,7 +101,6 @@ int cleanFile(const char *filePath) {
         return 0;
     }
 
-    const char *cleanPath = "onegin_clean.txt";
     FILE *fileToWrite = fopen(cleanPath, "w");
     if (fileToWrite == nullptr) {
         printf("There was an error opening file %s : %s\n", cleanPath, strerror(errno));
@@ -127,7 +126,7 @@ int cleanFile(const char *filePath) {
     return 1;
 }
 
-int writeLinesToFile(const line *array, const size_t numLines, const char *filePath) {
+int writeLinesToFile(const text_t *text, const char *filePath) {
     FILE *fileToWrite = fopen(filePath, "a");
     if (fileToWrite == nullptr) {
         printf("There was an error opening file %s : %s\n", filePath, strerror(errno));
@@ -135,8 +134,9 @@ int writeLinesToFile(const line *array, const size_t numLines, const char *fileP
     }
 
     size_t i = 0;
-    for (; i < numLines; ++i) {
-        if (fprintf(fileToWrite, "%s\n", array[i].ptr) != array[i].len + 1) {
+    for (; i < text->numLines; ++i) {
+        const line cur = text->lines[i];
+        if (fprintf(fileToWrite, "%s\n", cur.ptr) != int(cur.len) + 1) {
             printf("There was an error writing to file %s : %s\n", filePath, strerror(errno));
             fclose(fileToWrite);
             return 0;

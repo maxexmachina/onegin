@@ -4,6 +4,7 @@
 #include <sys/types.h>
 
 #include "split.h"
+#include "text.h"
 
 bool isSpace(const char c);
 
@@ -19,8 +20,8 @@ size_t getFileSize(const char *filePath);
 //------------------------------------------------------------ 
 char *readFile(const char *filePath, size_t *size);
 
-int cleanFile(const char *filePath);
+int cleanFile(const char *filePath, const char *cleanPath);
 
-int writeLinesToFile(const line *array, const size_t numLines, const char *filePath);
+int writeLinesToFile(const text_t *text, const char *filePath);
 
 #endif

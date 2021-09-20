@@ -16,35 +16,29 @@ int main() {
     }*/
     setlocale(LC_ALL, "ru_RU.utf8");
 
-    if (cleanFile("onegin.txt") == 0) {
+    const char *filePath = "onegin.txt";
+    const char *cleanPath = "clean.txt";
+    const char *sortedPath = "sorted.txt";
+
+    if (cleanFile(filePath, cleanPath) == 0) {
         printf("error\n");
         return EXIT_FAILURE;
     } 
 
-    size_t bufSize = 0;
-    char *textBuffer = readFile("onegin_clean.txt", &bufSize);
-    if (textBuffer == nullptr) {
+    text_t text = {};
+    if (getText(cleanPath, &text) == 0) {
+        printf("Error getting lines from file %s\n", cleanPath);
+    }
+
+    qsort(text.lines, text.numLines, sizeof(line), &lineCmp);
+    for (size_t i = 0; i < text.numLines; ++i) {
+        printf("%zu : %s\n", i, text.lines[i].ptr);
+    }
+    if (writeLinesToFile(&text, sortedPath) != (int)text.numLines + 1) {
+        freeText(&text);
         return EXIT_FAILURE;
     }
 
-    size_t numLines = 0;
-    line *array = splitBuffer(textBuffer, bufSize, &numLines); 
-    if (array == nullptr) {
-        free(textBuffer);
-        return EXIT_FAILURE;
-    }
-
-    qsort(array, numLines, sizeof(line), &lineCmp);
-    for (size_t i = 0; i < numLines; ++i) {
-        printf("%zu : %s\n", i, array[i].ptr);
-    }
-    if (writeLinesToFile(array, numLines, "onegin_sorted.txt") != (int)numLines + 1) {
-        free(textBuffer);
-        free(array);
-        return EXIT_FAILURE;
-    }
-
-    free(textBuffer);
-    free(array);
+    freeText(&text);
     return EXIT_SUCCESS; 
 }

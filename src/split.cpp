@@ -31,11 +31,13 @@ line *splitBuffer(char *buffer, size_t bufSize, size_t *totalLines) {
         }
         if (lineNum == arrSize - 1) {
             arrSize *= 2;
-            lineArray = (line *)realloc(lineArray, sizeof(*lineArray) * arrSize);
-            if (lineArray == nullptr) {
+            line *newArr = (line *)realloc(lineArray, sizeof(*lineArray) * arrSize);
+            if (newArr == nullptr) {
                 printf("There was an error allocating memory : %s\n", strerror(errno));
+                free(lineArray);
                 return nullptr;
             }
+            lineArray = newArr;
         }
     }
     *totalLines = lineNum;
