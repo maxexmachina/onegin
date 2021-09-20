@@ -1,3 +1,6 @@
+#ifndef FILEUTILS_H
+#define FILEUTILS_H
+
 #include <sys/types.h>
 
 bool isSpace(const char c);
@@ -15,3 +18,5 @@ size_t getFileSize(const char *filePath);
 char *readFile(const char *filePath, size_t *size);
 
 int cleanFile(const char *filePath);
+
+#endif

@@ -14,6 +14,7 @@ int main() {
         printf("There was an error reading file path\n");
         return 1;
     }*/
+    setlocale(LC_ALL, "ru_RU.utf8");
 
     if (cleanFile("onegin.txt") == 0) {
         printf("error\n");
@@ -33,12 +34,12 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    for (size_t i = 0; i < 10; i++) {
+    qsort(array, numLines, sizeof(line), &lineCmp);
+    for (size_t i = 0; i < numLines; i++) {
         printf("%s\n", array[i].ptr);
     }
-    printf("%s\n%s\n%d\n", array[4].ptr, array[2].ptr, myStrcmp(array[4].ptr, array[2].ptr));
 
     free(textBuffer);
     free(array);
-    return EXIT_SUCCESS;
+    return EXIT_SUCCESS; 
 }
