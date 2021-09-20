@@ -39,6 +39,8 @@ int main() {
         printf("%zu : %s\n", i, array[i].ptr);
     }
     if (writeLinesToFile(array, numLines, "onegin_sorted.txt") != (int)numLines + 1) {
+        free(textBuffer);
+        free(array);
         return EXIT_FAILURE;
     }
 
