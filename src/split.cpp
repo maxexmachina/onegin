@@ -25,7 +25,7 @@ line *splitBuffer(char *buffer, size_t bufSize, size_t *totalLines) {
             ++lineNum;
         } else {
             lineArray[lineNum] = {.ptr = buffer,
-                                  .len = bufSize - (size_t)(buffer - start)};
+                                  .len = bufSize - (size_t)(buffer - start) - 1};
             ++lineNum;
             break;
         }

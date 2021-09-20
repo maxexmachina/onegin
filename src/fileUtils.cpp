@@ -58,6 +58,9 @@ char *cleanBuffer(const char *readBuf, const size_t bufSize, size_t *numCleanByt
                 ++i;
             }
         }
+        if (readBuf[i] == '\r') {
+            ++i;
+        }
 
         if (isSpace(readBuf[i])) {
             size_t j = i;
@@ -122,4 +125,28 @@ int cleanFile(const char *filePath) {
     free(readBuf);
     free(writeBuf);
     return 1;
+}
+
+int writeLinesToFile(const line *array, const size_t numLines, const char *filePath) {
+    FILE *fileToWrite = fopen(filePath, "a");
+    if (fileToWrite == nullptr) {
+        printf("There was an error opening file %s : %s\n", filePath, strerror(errno));
+        return 0;
+    }
+
+    size_t i = 0;
+    for (; i < numLines; ++i) {
+        if (fprintf(fileToWrite, "%s\n", array[i].ptr) != array[i].len + 1) {
+            printf("There was an error writing to file %s : %s\n", filePath, strerror(errno));
+            fclose(fileToWrite);
+            return 0;
+        } 
+    }
+
+    fprintf(fileToWrite, "--------------------------------------------------\n");
+    if (fclose(fileToWrite) == EOF) {
+        printf("There was an error closing file %s : %s\n", filePath, strerror(errno));
+        return 0;
+    }
+    return int(i + 1);
 }

@@ -35,8 +35,11 @@ int main() {
     }
 
     qsort(array, numLines, sizeof(line), &lineCmp);
-    for (size_t i = 0; i < numLines; i++) {
-        printf("%s\n", array[i].ptr);
+    for (size_t i = 0; i < numLines; ++i) {
+        printf("%zu : %s\n", i, array[i].ptr);
+    }
+    if (writeLinesToFile(array, numLines, "onegin_sorted.txt") != (int)numLines + 1) {
+        return EXIT_FAILURE;
     }
 
     free(textBuffer);

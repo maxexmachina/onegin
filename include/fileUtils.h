@@ -3,6 +3,8 @@
 
 #include <sys/types.h>
 
+#include "split.h"
+
 bool isSpace(const char c);
 
 char *cleanBuffer(const char *readBuf, const size_t bufSize, size_t *numCleanBytes);
@@ -18,5 +20,7 @@ size_t getFileSize(const char *filePath);
 char *readFile(const char *filePath, size_t *size);
 
 int cleanFile(const char *filePath);
+
+int writeLinesToFile(const line *array, const size_t numLines, const char *filePath);
 
 #endif
