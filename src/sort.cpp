@@ -11,11 +11,11 @@ void swap(void *a, void *b, size_t size) {
     free(temp);
 }
 
-void heapify(void *array, int n, int i, size_t size, int (*cmp)(const void *, const void *)) {
+void heapify(void *array, size_t n, size_t i, size_t size, int (*cmp)(const void *, const void *)) {
     char *arr = (char *)array;
-    int largest = i;
-    int l = 2 * i + 1;
-    int r = 2 * i + 2;
+    size_t largest = i;
+    size_t l = 2 * i + 1;
+    size_t r = 2 * i + 2;
 
     if (l < n && cmp(arr + l * size, arr + largest * size) > 0) {
         largest = l;
@@ -30,17 +30,12 @@ void heapify(void *array, int n, int i, size_t size, int (*cmp)(const void *, co
 }
 
 void myHeapSort(void *base, size_t nmemb, size_t size, int (*cmp)(const void *, const void *)) {
-    int i = nmemb / 2 - 1;
-
-    while (i >= 0) {
+    for (int i = (int)nmemb / 2 - 1; i >= 0; --i) {
         heapify(base, nmemb, i, size, cmp);
-        --i;
     }
 
-    i = size - 1;
-    while (i > 0) {
+    for (int i = (int)nmemb - 1; i > 0; --i) {
         swap(base, (char *)base + i * size, size);
         heapify(base, i, 0, size, cmp);
-        --i;
     }
 }
