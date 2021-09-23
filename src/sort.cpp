@@ -1,80 +1,46 @@
-#include <wchar.h>
-#include <stdlib.h>
-
 #include "../include/sort.h"
 
-wchar_t *lineToWCharStr(const line *l) {
-    const size_t size = l->len + 1;
-    wchar_t *wText = (wchar_t *)calloc(size, sizeof(*wText));
-    mbstowcs(wText, l->ptr, size);
-    return wText;
+#include <stdlib.h>
+#include <string.h>
+
+void swap(void *a, void *b, size_t size) {
+    void *temp = calloc(1, size);
+    memcpy(temp, a, size);
+    memcpy(a, b, size);
+    memcpy(b, temp, size);
+    free(temp);
 }
 
-int wIsAlpha(wchar_t c) {
-    return (c >= 0x0410 && c <= 0x042F) || // а to я 
-           (c >= 0x0430 && c <= 0x044F) || // А to Я
-           (c >= 0x41 && c <= 0x5a) || // A to Z
-           (c >= 0x61 && c <= 0x7a); // a to z
-}
+void heapify(void *array, int n, int i, size_t size, int (*cmp)(const void *, const void *)) {
+    char *arr = (char *)array;
+    int largest = i;
+    int l = 2 * i + 1;
+    int r = 2 * i + 2;
 
-int wstrcmp(const wchar_t *s1, const wchar_t *s2) {
-    while (*s1 && !wIsAlpha(*s1)) {
-        ++s1;
+    if (l < n && cmp(arr + l * size, arr + largest * size) > 0) {
+        largest = l;
     }
-    while (*s2 && !wIsAlpha(*s2)) {
-        ++s2;
+    if (r < n && cmp(arr + r * size, arr + largest * size) > 0) {
+        largest = r;
     }
-    while (*s1 && (*s1 == *s2)) {
-        ++s1;
-        ++s2;
-    }
-    return (*s1 - *s2);
-}
-
-int lineCmp(const void *l1, const void *l2) {
-    wchar_t *w1 = lineToWCharStr((const line *)l1);
-    wchar_t *w2 = lineToWCharStr((const line *)l2);
-
-    const int ret = wstrcmp(w1, w2);
-    free(w1);
-    free(w2);
-    return ret;
-}
-
-int rwstrcmp(const wchar_t *s1, const wchar_t *s2, const size_t l1, const size_t l2) {
-    ssize_t pos1 = l1;
-    ssize_t pos2 = l2;
-    while (pos1 >= 0 && !wIsAlpha(s1[pos1])) {
-        --pos1;
-    }
-    while (pos2 >= 0 && !wIsAlpha(s2[pos2])) {
-        --pos2;
-    }
-    while (pos1 >= 0 && pos2 >= 0 && (s1[pos1] == s2[pos2])) {
-        --pos1;
-        --pos2;
-    }
-
-    if (pos1 < 0 && pos2 < 0) {
-        return 0;
-    } else if (pos1 < 0) {
-        return -1;
-    } else if (pos2 < 0) {
-        return 1;
-    } else {
-        return (s1[pos1] - s2[pos2]);
+    if (largest != i) {
+        swap(arr + i * size, arr + largest * size, size);
+        heapify(arr, n, largest, size, cmp);
     }
 }
 
-int rLineCmp(const void *l1, const void *l2) {
-    const line *line1 = (const line *)l1;
-    const line *line2 = (const line *)l2;
+void myHeapSort(void *base, size_t nmemb, size_t size, int (*cmp)(const void *, const void *)) {
+    int i = nmemb / 2 - 1;
 
-    wchar_t *w1 = lineToWCharStr(line1);
-    wchar_t *w2 = lineToWCharStr(line2);
+    while (i >= 0) {
+        heapify(base, nmemb, i, size, cmp);
+        --i;
+    }
 
-    const int ret = rwstrcmp(w1, w2, line1->len, line2->len);
-    free(w1);
-    free(w2);
-    return ret;
+    i = size - 1;
+    while (i > 0) {
+        swap(base, (char *)base + i * size, size);
+        heapify(base, i, 0, size, cmp);
+        --i;
+    }
 }
