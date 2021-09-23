@@ -1,0 +1,36 @@
+\hypertarget{split_8cpp}{}\doxysection{src/split.cpp File Reference}
+\label{split_8cpp}\index{src/split.cpp@{src/split.cpp}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../include/split.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{split_8h_af53b1ebf66207c60757f840167dad0b1}{line}} $\ast$ \mbox{\hyperlink{split_8cpp_a1a2f67e5a5bb01d4982b914ff5cd73c7}{split\+Buffer}} (char $\ast$buffer, size\+\_\+t buf\+Size, size\+\_\+t $\ast$total\+Lines)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{split_8cpp_a1a2f67e5a5bb01d4982b914ff5cd73c7}\label{split_8cpp_a1a2f67e5a5bb01d4982b914ff5cd73c7}} 
+\index{split.cpp@{split.cpp}!splitBuffer@{splitBuffer}}
+\index{splitBuffer@{splitBuffer}!split.cpp@{split.cpp}}
+\doxysubsubsection{\texorpdfstring{splitBuffer()}{splitBuffer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{split_8h_af53b1ebf66207c60757f840167dad0b1}{line}} $\ast$ split\+Buffer (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer,  }\item[{size\+\_\+t}]{buf\+Size,  }\item[{size\+\_\+t $\ast$}]{total\+Lines }\end{DoxyParamCaption})}
+
+Splits the given char buffer into lines of text
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em buffer} & Char buffer to separate into lines \\
+\hline
+\mbox{\texttt{ in}}  & {\em buf\+Size} & Size of the buffer in bytes \\
+\hline
+\mbox{\texttt{ out}}  & {\em total\+Lines} & Pointer to a variable to store the total number of lines separated\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An array of line structs that store info about lines of text in case of success, nullptr otherwise ~\newline
+ 
+\end{DoxyReturn}

@@ -1,0 +1,75 @@
+\hypertarget{sort_8cpp}{}\doxysection{src/sort.cpp File Reference}
+\label{sort_8cpp}\index{src/sort.cpp@{src/sort.cpp}}
+{\ttfamily \#include \char`\"{}../include/sort.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{sort_8cpp_ac005eaa05ec80dbf1a0984d3d4fa80a8}{swap}} (void $\ast$a, void $\ast$b, size\+\_\+t size)
+\item 
+void \mbox{\hyperlink{sort_8cpp_a57699dba476c608649af991d4a4b146a}{heapify}} (void $\ast$array, size\+\_\+t n, size\+\_\+t i, size\+\_\+t size, int($\ast$cmp)(const void $\ast$, const void $\ast$))
+\item 
+void \mbox{\hyperlink{sort_8cpp_a753a3a382e7f6508024874ce486f1375}{my\+Heap\+Sort}} (void $\ast$base, size\+\_\+t nmemb, size\+\_\+t size, int($\ast$cmp)(const void $\ast$, const void $\ast$))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{sort_8cpp_a57699dba476c608649af991d4a4b146a}\label{sort_8cpp_a57699dba476c608649af991d4a4b146a}} 
+\index{sort.cpp@{sort.cpp}!heapify@{heapify}}
+\index{heapify@{heapify}!sort.cpp@{sort.cpp}}
+\doxysubsubsection{\texorpdfstring{heapify()}{heapify()}}
+{\footnotesize\ttfamily void heapify (\begin{DoxyParamCaption}\item[{void $\ast$}]{array,  }\item[{size\+\_\+t}]{n,  }\item[{size\+\_\+t}]{i,  }\item[{size\+\_\+t}]{size,  }\item[{int($\ast$)(const void $\ast$, const void $\ast$)}]{cmp }\end{DoxyParamCaption})}
+
+Builds a max heap with an array representation
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em array} & Array with data to build the heap from \\
+\hline
+\mbox{\texttt{ in}}  & {\em n} & Size of the heap \\
+\hline
+\mbox{\texttt{ in}}  & {\em i} & Index of the array at which the subtree is rooted \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & Size of the type of variables stored in array \\
+\hline
+\mbox{\texttt{ in}}  & {\em cmp} & Comparator function that returns positive values if the left value is larger, 0 if the values are equal \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sort_8cpp_a753a3a382e7f6508024874ce486f1375}\label{sort_8cpp_a753a3a382e7f6508024874ce486f1375}} 
+\index{sort.cpp@{sort.cpp}!myHeapSort@{myHeapSort}}
+\index{myHeapSort@{myHeapSort}!sort.cpp@{sort.cpp}}
+\doxysubsubsection{\texorpdfstring{myHeapSort()}{myHeapSort()}}
+{\footnotesize\ttfamily void my\+Heap\+Sort (\begin{DoxyParamCaption}\item[{void $\ast$}]{base,  }\item[{size\+\_\+t}]{nmemb,  }\item[{size\+\_\+t}]{size,  }\item[{int($\ast$)(const void $\ast$, const void $\ast$)}]{cmp }\end{DoxyParamCaption})}
+
+Sorts data in base array using heap sort algorithm
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em base} & Array with data to sort \\
+\hline
+\mbox{\texttt{ in}}  & {\em nmemb} & Number of members in the array \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & Size of the type of variables stored in array \\
+\hline
+\mbox{\texttt{ in}}  & {\em cmp} & Comparator function that returns positive values if the left value is larger, 0 if the values are equal \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sort_8cpp_ac005eaa05ec80dbf1a0984d3d4fa80a8}\label{sort_8cpp_ac005eaa05ec80dbf1a0984d3d4fa80a8}} 
+\index{sort.cpp@{sort.cpp}!swap@{swap}}
+\index{swap@{swap}!sort.cpp@{sort.cpp}}
+\doxysubsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily void swap (\begin{DoxyParamCaption}\item[{void $\ast$}]{a,  }\item[{void $\ast$}]{b,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+Swaps values of variables pointed to by pointers a and b
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em a} & Pointer to first value \\
+\hline
+\mbox{\texttt{ out}}  & {\em b} & Pointer to second value \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & Size of the type of variables a and b ~\newline
+ \\
+\hline
+\end{DoxyParams}

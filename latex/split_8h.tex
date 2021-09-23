@@ -1,0 +1,73 @@
+\hypertarget{split_8h}{}\doxysection{include/split.h File Reference}
+\label{split_8h}\index{include/split.h@{include/split.h}}
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtextLine}{text\+Line}}
+\begin{DoxyCompactList}\small\item\em Struct that holds information about the lines. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structtextLine}{text\+Line}} \mbox{\hyperlink{split_8h_af53b1ebf66207c60757f840167dad0b1}{line}}
+\begin{DoxyCompactList}\small\item\em Struct that holds information about the lines. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{split_8h_af53b1ebf66207c60757f840167dad0b1}{line}} $\ast$ \mbox{\hyperlink{split_8h_a1a2f67e5a5bb01d4982b914ff5cd73c7}{split\+Buffer}} (char $\ast$buffer, size\+\_\+t buf\+Size, size\+\_\+t $\ast$total\+Lines)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const size\+\_\+t \mbox{\hyperlink{split_8h_a7a66b70463f7a8a1d83d0268c13084a0}{DEFAULT\+\_\+\+ARR\+\_\+\+SIZE}} = 1024
+\begin{DoxyCompactList}\small\item\em Defines the default size of the array of lines that are read from the file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{split_8h_af53b1ebf66207c60757f840167dad0b1}\label{split_8h_af53b1ebf66207c60757f840167dad0b1}} 
+\index{split.h@{split.h}!line@{line}}
+\index{line@{line}!split.h@{split.h}}
+\doxysubsubsection{\texorpdfstring{line}{line}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structtextLine}{text\+Line}} \mbox{\hyperlink{split_8h_af53b1ebf66207c60757f840167dad0b1}{line}}}
+
+
+
+Struct that holds information about the lines. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{split_8h_a1a2f67e5a5bb01d4982b914ff5cd73c7}\label{split_8h_a1a2f67e5a5bb01d4982b914ff5cd73c7}} 
+\index{split.h@{split.h}!splitBuffer@{splitBuffer}}
+\index{splitBuffer@{splitBuffer}!split.h@{split.h}}
+\doxysubsubsection{\texorpdfstring{splitBuffer()}{splitBuffer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{split_8h_af53b1ebf66207c60757f840167dad0b1}{line}} $\ast$ split\+Buffer (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer,  }\item[{size\+\_\+t}]{buf\+Size,  }\item[{size\+\_\+t $\ast$}]{total\+Lines }\end{DoxyParamCaption})}
+
+Splits the given char buffer into lines of text
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em buffer} & Char buffer to separate into lines \\
+\hline
+\mbox{\texttt{ in}}  & {\em buf\+Size} & Size of the buffer in bytes \\
+\hline
+\mbox{\texttt{ out}}  & {\em total\+Lines} & Pointer to a variable to store the total number of lines separated\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An array of line structs that store info about lines of text in case of success, nullptr otherwise ~\newline
+ 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{split_8h_a7a66b70463f7a8a1d83d0268c13084a0}\label{split_8h_a7a66b70463f7a8a1d83d0268c13084a0}} 
+\index{split.h@{split.h}!DEFAULT\_ARR\_SIZE@{DEFAULT\_ARR\_SIZE}}
+\index{DEFAULT\_ARR\_SIZE@{DEFAULT\_ARR\_SIZE}!split.h@{split.h}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_ARR\_SIZE}{DEFAULT\_ARR\_SIZE}}
+{\footnotesize\ttfamily const size\+\_\+t DEFAULT\+\_\+\+ARR\+\_\+\+SIZE = 1024}
+
+
+
+Defines the default size of the array of lines that are read from the file. 
+

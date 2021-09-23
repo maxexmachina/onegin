@@ -1,0 +1,115 @@
+\hypertarget{fileUtils_8cpp}{}\doxysection{src/file\+Utils.cpp File Reference}
+\label{fileUtils_8cpp}\index{src/fileUtils.cpp@{src/fileUtils.cpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../include/file\+Utils.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{fileUtils_8cpp_a2c20750eaa43d0574c49de4123e749fb}{get\+File\+Size}} (const char $\ast$file\+Path)
+\item 
+char $\ast$ \mbox{\hyperlink{fileUtils_8cpp_aed4114ce8dacf41b050445c99f255eab}{read\+File}} (const char $\ast$file\+Path, size\+\_\+t $\ast$size)
+\item 
+bool \mbox{\hyperlink{fileUtils_8cpp_a5b01479a4e21bfc9e7b361aeedaaf1b4}{is\+Space}} (const char c)
+\item 
+char $\ast$ \mbox{\hyperlink{fileUtils_8cpp_a67265dc159515b1ecd7d88eef70d2244}{clean\+Buffer}} (const char $\ast$read\+Buf, const size\+\_\+t buf\+Size, size\+\_\+t $\ast$num\+Clean\+Bytes)
+\item 
+int \mbox{\hyperlink{fileUtils_8cpp_a160019ad85499baaa318bbb18f600bce}{clean\+File}} (const char $\ast$file\+Path, const char $\ast$clean\+Path)
+\item 
+int \mbox{\hyperlink{fileUtils_8cpp_a3ca8df856836abc8a18720619f5d5377}{write\+Lines\+To\+File}} (const \mbox{\hyperlink{structtext__t}{text\+\_\+t}} $\ast$text, const char $\ast$file\+Path)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{fileUtils_8cpp_a67265dc159515b1ecd7d88eef70d2244}\label{fileUtils_8cpp_a67265dc159515b1ecd7d88eef70d2244}} 
+\index{fileUtils.cpp@{fileUtils.cpp}!cleanBuffer@{cleanBuffer}}
+\index{cleanBuffer@{cleanBuffer}!fileUtils.cpp@{fileUtils.cpp}}
+\doxysubsubsection{\texorpdfstring{cleanBuffer()}{cleanBuffer()}}
+{\footnotesize\ttfamily char $\ast$ clean\+Buffer (\begin{DoxyParamCaption}\item[{const char $\ast$}]{read\+Buf,  }\item[{const size\+\_\+t}]{buf\+Size,  }\item[{size\+\_\+t $\ast$}]{num\+Clean\+Bytes }\end{DoxyParamCaption})}
+
+Cleans the given text buffer from \textbackslash{}r symbols and whitespaces at beginnings and ends of lines
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em read\+Buf} & Text buffer to clean \\
+\hline
+\mbox{\texttt{ in}}  & {\em buf\+Size} & Size of the buffer \\
+\hline
+\mbox{\texttt{ out}}  & {\em num\+Clean\+Bytes} & Pointer to a variable to store the number of clean bytes in the returned buffer\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Clean text buffer where the first num\+Clean\+Bytes are clean ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fileUtils_8cpp_a160019ad85499baaa318bbb18f600bce}\label{fileUtils_8cpp_a160019ad85499baaa318bbb18f600bce}} 
+\index{fileUtils.cpp@{fileUtils.cpp}!cleanFile@{cleanFile}}
+\index{cleanFile@{cleanFile}!fileUtils.cpp@{fileUtils.cpp}}
+\doxysubsubsection{\texorpdfstring{cleanFile()}{cleanFile()}}
+{\footnotesize\ttfamily int clean\+File (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+Path,  }\item[{const char $\ast$}]{clean\+Path }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{fileUtils_8cpp_a2c20750eaa43d0574c49de4123e749fb}\label{fileUtils_8cpp_a2c20750eaa43d0574c49de4123e749fb}} 
+\index{fileUtils.cpp@{fileUtils.cpp}!getFileSize@{getFileSize}}
+\index{getFileSize@{getFileSize}!fileUtils.cpp@{fileUtils.cpp}}
+\doxysubsubsection{\texorpdfstring{getFileSize()}{getFileSize()}}
+{\footnotesize\ttfamily size\+\_\+t get\+File\+Size (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+Path }\end{DoxyParamCaption})}
+
+Returns the size of a given file
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em file\+Path} & Relative path to the file\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The amount of space the file takes up on the drive in bytes ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fileUtils_8cpp_a5b01479a4e21bfc9e7b361aeedaaf1b4}\label{fileUtils_8cpp_a5b01479a4e21bfc9e7b361aeedaaf1b4}} 
+\index{fileUtils.cpp@{fileUtils.cpp}!isSpace@{isSpace}}
+\index{isSpace@{isSpace}!fileUtils.cpp@{fileUtils.cpp}}
+\doxysubsubsection{\texorpdfstring{isSpace()}{isSpace()}}
+{\footnotesize\ttfamily bool is\+Space (\begin{DoxyParamCaption}\item[{const char}]{c }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{fileUtils_8cpp_aed4114ce8dacf41b050445c99f255eab}\label{fileUtils_8cpp_aed4114ce8dacf41b050445c99f255eab}} 
+\index{fileUtils.cpp@{fileUtils.cpp}!readFile@{readFile}}
+\index{readFile@{readFile}!fileUtils.cpp@{fileUtils.cpp}}
+\doxysubsubsection{\texorpdfstring{readFile()}{readFile()}}
+{\footnotesize\ttfamily char $\ast$ read\+File (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+Path,  }\item[{size\+\_\+t $\ast$}]{size }\end{DoxyParamCaption})}
+
+Reads text from a file and returns a null-\/terminated buffer
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em file\+Path} & Path to file \\
+\hline
+\mbox{\texttt{ out}}  & {\em size} & Pointer to a variable to store the size of the buffer including the null-\/termination character\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null-\/terminated char buffer in case of success, nullptr otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fileUtils_8cpp_a3ca8df856836abc8a18720619f5d5377}\label{fileUtils_8cpp_a3ca8df856836abc8a18720619f5d5377}} 
+\index{fileUtils.cpp@{fileUtils.cpp}!writeLinesToFile@{writeLinesToFile}}
+\index{writeLinesToFile@{writeLinesToFile}!fileUtils.cpp@{fileUtils.cpp}}
+\doxysubsubsection{\texorpdfstring{writeLinesToFile()}{writeLinesToFile()}}
+{\footnotesize\ttfamily int write\+Lines\+To\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtext__t}{text\+\_\+t}} $\ast$}]{text,  }\item[{const char $\ast$}]{file\+Path }\end{DoxyParamCaption})}
+
+Writes lines from a text struct to a file
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em text} & \mbox{\hyperlink{structtext__t}{text\+\_\+t}} struct containing the text to write \\
+\hline
+\mbox{\texttt{ in}}  & {\em file\+Path} & Relative path to file in which to write the text\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 in case of successful operation, 0 otherwise
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The file is opened in \char`\"{}a\char`\"{} mode, lines are appended to the end 
+\end{DoxyNote}

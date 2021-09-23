@@ -1,0 +1,49 @@
+\hypertarget{text_8h}{}\doxysection{include/text.h File Reference}
+\label{text_8h}\index{include/text.h@{include/text.h}}
+{\ttfamily \#include \char`\"{}split.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtext__t}{text\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Stores information about the text read from the file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{text_8h_a813e6624016ac1ccf78827c5b4689f62}{free\+Text}} (\mbox{\hyperlink{structtext__t}{text\+\_\+t}} $\ast$text)
+\item 
+int \mbox{\hyperlink{text_8h_a500ad9e878ddf35c691606f7fa682840}{get\+Text}} (const char $\ast$file\+Path, \mbox{\hyperlink{structtext__t}{text\+\_\+t}} $\ast$text)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{text_8h_a813e6624016ac1ccf78827c5b4689f62}\label{text_8h_a813e6624016ac1ccf78827c5b4689f62}} 
+\index{text.h@{text.h}!freeText@{freeText}}
+\index{freeText@{freeText}!text.h@{text.h}}
+\doxysubsubsection{\texorpdfstring{freeText()}{freeText()}}
+{\footnotesize\ttfamily void free\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtext__t}{text\+\_\+t}} $\ast$}]{text }\end{DoxyParamCaption})}
+
+Frees the dynamic memory allocated for text storage
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em text} & \mbox{\hyperlink{structtext__t}{text\+\_\+t}} struct that stores info about the text \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{text_8h_a500ad9e878ddf35c691606f7fa682840}\label{text_8h_a500ad9e878ddf35c691606f7fa682840}} 
+\index{text.h@{text.h}!getText@{getText}}
+\index{getText@{getText}!text.h@{text.h}}
+\doxysubsubsection{\texorpdfstring{getText()}{getText()}}
+{\footnotesize\ttfamily int get\+Text (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+Path,  }\item[{\mbox{\hyperlink{structtext__t}{text\+\_\+t}} $\ast$}]{text }\end{DoxyParamCaption})}
+
+Fills a \mbox{\hyperlink{structtext__t}{text\+\_\+t}} struct with text read from a file
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em file\+Path} & Relative path to file to read the text from \\
+\hline
+\mbox{\texttt{ out}}  & {\em text} & Pointer to \mbox{\hyperlink{structtext__t}{text\+\_\+t}} struct in which to store text and info\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 in case of success, 0 otherwise 
+\end{DoxyReturn}

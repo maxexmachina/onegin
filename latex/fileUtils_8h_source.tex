@@ -1,0 +1,51 @@
+\hypertarget{fileUtils_8h_source}{}\doxysection{file\+Utils.\+h}
+\label{fileUtils_8h_source}\index{include/fileUtils.h@{include/fileUtils.h}}
+\mbox{\hyperlink{fileUtils_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef FILEUTILS\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define FILEUTILS\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <sys/types.h>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{split_8h}{split.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{text_8h}{text.h}}"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
+\DoxyCodeLine{10 \textcolor{comment}{// ! Checks if the given character is a whitespace}}
+\DoxyCodeLine{11 \textcolor{comment}{// !}}
+\DoxyCodeLine{12 \textcolor{comment}{// ! @param[in] c   Character to check}}
+\DoxyCodeLine{13 \textcolor{comment}{// !}}
+\DoxyCodeLine{14 \textcolor{comment}{// ! @return    true if the character is a whitespace, 0 otherwise}}
+\DoxyCodeLine{15 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
+\DoxyCodeLine{16 \textcolor{keywordtype}{bool} \mbox{\hyperlink{fileUtils_8h_a5b01479a4e21bfc9e7b361aeedaaf1b4}{isSpace}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} c);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
+\DoxyCodeLine{26 \textcolor{comment}{}\textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
+\DoxyCodeLine{27 \textcolor{keywordtype}{char} *\mbox{\hyperlink{fileUtils_8h_a67265dc159515b1ecd7d88eef70d2244}{cleanBuffer}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *readBuf, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} bufSize, \textcolor{keywordtype}{size\_t} *numCleanBytes);}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
+\DoxyCodeLine{35 \textcolor{comment}{}\textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
+\DoxyCodeLine{36 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{fileUtils_8h_a2c20750eaa43d0574c49de4123e749fb}{getFileSize}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *filePath);}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
+\DoxyCodeLine{45 \textcolor{comment}{}\textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
+\DoxyCodeLine{46 \textcolor{keywordtype}{char} *\mbox{\hyperlink{fileUtils_8h_aed4114ce8dacf41b050445c99f255eab}{readFile}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *filePath, \textcolor{keywordtype}{size\_t} *size);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
+\DoxyCodeLine{49 \textcolor{comment}{// ! Cleans the given text file from \(\backslash\)\(\backslash\)r symbols and spaces at beginnings and ends of lines,}}
+\DoxyCodeLine{50 \textcolor{comment}{// ! saves the new version to a new file }}
+\DoxyCodeLine{51 \textcolor{comment}{// ! }}
+\DoxyCodeLine{52 \textcolor{comment}{// ! @param[in] filePath    Relative path to file to clean}}
+\DoxyCodeLine{53 \textcolor{comment}{// ! @param[in] cleanPath   Relative path to the new cleaned file}}
+\DoxyCodeLine{54 \textcolor{comment}{// ! }}
+\DoxyCodeLine{55 \textcolor{comment}{// ! @return    1 in case of successfull operation, 0 otherwise}}
+\DoxyCodeLine{56 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
+\DoxyCodeLine{57 \textcolor{keywordtype}{int} \mbox{\hyperlink{fileUtils_8h_a160019ad85499baaa318bbb18f600bce}{cleanFile}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *filePath, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *cleanPath);}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
+\DoxyCodeLine{68 \textcolor{comment}{}\textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
+\DoxyCodeLine{69 \textcolor{keywordtype}{int} \mbox{\hyperlink{fileUtils_8h_a3ca8df856836abc8a18720619f5d5377}{writeLinesToFile}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtext__t}{text\_t}} *text, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *filePath);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

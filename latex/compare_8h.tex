@@ -1,0 +1,151 @@
+\hypertarget{compare_8h}{}\doxysection{include/compare.h File Reference}
+\label{compare_8h}\index{include/compare.h@{include/compare.h}}
+{\ttfamily \#include \char`\"{}../include/split.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+wchar\+\_\+t $\ast$ \mbox{\hyperlink{compare_8h_a7ad99c42b9ebbffaecdf1b58ed159146}{line\+To\+WChar\+Str}} (const \mbox{\hyperlink{split_8h_af53b1ebf66207c60757f840167dad0b1}{line}} $\ast$l)
+\item 
+int \mbox{\hyperlink{compare_8h_aadd12a11815bff55dbc68f3e9233ccda}{w\+Is\+Alpha}} (wchar\+\_\+t c)
+\item 
+int \mbox{\hyperlink{compare_8h_a87cf4dcc4405f6a8c8c94269fb18c241}{wstrcmp}} (const wchar\+\_\+t $\ast$s1, const wchar\+\_\+t $\ast$s2)
+\item 
+int \mbox{\hyperlink{compare_8h_a74f25355ef771012154ff0fbb0380276}{line\+Cmp}} (const void $\ast$l1, const void $\ast$l2)
+\item 
+int \mbox{\hyperlink{compare_8h_a2e50ca5c06eb7bd48d2a36ee28ff9602}{rwstrcmp}} (const wchar\+\_\+t $\ast$s1, const wchar\+\_\+t $\ast$s2, const size\+\_\+t l1, const size\+\_\+t l2)
+\item 
+int \mbox{\hyperlink{compare_8h_adce37265e5164ecc045e729b4416ff3d}{r\+Line\+Cmp}} (const void $\ast$l1, const void $\ast$l2)
+\item 
+int \mbox{\hyperlink{compare_8h_a02ae7af03f47396298cf8df78d24a34e}{line\+Ptr\+Num\+Cmp}} (const void $\ast$l1, const void $\ast$l2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{compare_8h_a74f25355ef771012154ff0fbb0380276}\label{compare_8h_a74f25355ef771012154ff0fbb0380276}} 
+\index{compare.h@{compare.h}!lineCmp@{lineCmp}}
+\index{lineCmp@{lineCmp}!compare.h@{compare.h}}
+\doxysubsubsection{\texorpdfstring{lineCmp()}{lineCmp()}}
+{\footnotesize\ttfamily int line\+Cmp (\begin{DoxyParamCaption}\item[{const void $\ast$}]{l1,  }\item[{const void $\ast$}]{l2 }\end{DoxyParamCaption})}
+
+Compares two line structs based on alphabetical order of stored text
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em l1} & First line to compare \\
+\hline
+\mbox{\texttt{ in}}  & {\em l2} & Second line to compare\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Positive value if l1 \texorpdfstring{$>$}{>} l2, 0 if l1 == l2, negative value if l1 \texorpdfstring{$<$}{<} l2 ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{compare_8h_a02ae7af03f47396298cf8df78d24a34e}\label{compare_8h_a02ae7af03f47396298cf8df78d24a34e}} 
+\index{compare.h@{compare.h}!linePtrNumCmp@{linePtrNumCmp}}
+\index{linePtrNumCmp@{linePtrNumCmp}!compare.h@{compare.h}}
+\doxysubsubsection{\texorpdfstring{linePtrNumCmp()}{linePtrNumCmp()}}
+{\footnotesize\ttfamily int line\+Ptr\+Num\+Cmp (\begin{DoxyParamCaption}\item[{const void $\ast$}]{l1,  }\item[{const void $\ast$}]{l2 }\end{DoxyParamCaption})}
+
+Compares the values of two line pointers
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em l1} & First line pointer to compare \\
+\hline
+\mbox{\texttt{ in}}  & {\em l2} & Second line pointer to compare\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Positive value if l1 \texorpdfstring{$>$}{>} l2, 0 if l1 == l2, negative value if l1 \texorpdfstring{$<$}{<} l2 ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{compare_8h_a7ad99c42b9ebbffaecdf1b58ed159146}\label{compare_8h_a7ad99c42b9ebbffaecdf1b58ed159146}} 
+\index{compare.h@{compare.h}!lineToWCharStr@{lineToWCharStr}}
+\index{lineToWCharStr@{lineToWCharStr}!compare.h@{compare.h}}
+\doxysubsubsection{\texorpdfstring{lineToWCharStr()}{lineToWCharStr()}}
+{\footnotesize\ttfamily wchar\+\_\+t $\ast$ line\+To\+WChar\+Str (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{split_8h_af53b1ebf66207c60757f840167dad0b1}{line}} $\ast$}]{l }\end{DoxyParamCaption})}
+
+Converts a string of chars to its wide char representation based on current locale
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em l} & Line struct which holds the string to convert\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Wide char representation of the line text 
+\end{DoxyReturn}
+\mbox{\Hypertarget{compare_8h_adce37265e5164ecc045e729b4416ff3d}\label{compare_8h_adce37265e5164ecc045e729b4416ff3d}} 
+\index{compare.h@{compare.h}!rLineCmp@{rLineCmp}}
+\index{rLineCmp@{rLineCmp}!compare.h@{compare.h}}
+\doxysubsubsection{\texorpdfstring{rLineCmp()}{rLineCmp()}}
+{\footnotesize\ttfamily int r\+Line\+Cmp (\begin{DoxyParamCaption}\item[{const void $\ast$}]{l1,  }\item[{const void $\ast$}]{l2 }\end{DoxyParamCaption})}
+
+Compares two line structs based on alphabetical order of stored text, the comparison is performed in reverse, starting from the end of the string
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em l1} & First line to compare \\
+\hline
+\mbox{\texttt{ in}}  & {\em l2} & Second line to compare\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Positive value if l1 \texorpdfstring{$>$}{>} l2, 0 if l1 == l2, negative value if l1 \texorpdfstring{$<$}{<} l2 ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{compare_8h_a2e50ca5c06eb7bd48d2a36ee28ff9602}\label{compare_8h_a2e50ca5c06eb7bd48d2a36ee28ff9602}} 
+\index{compare.h@{compare.h}!rwstrcmp@{rwstrcmp}}
+\index{rwstrcmp@{rwstrcmp}!compare.h@{compare.h}}
+\doxysubsubsection{\texorpdfstring{rwstrcmp()}{rwstrcmp()}}
+{\footnotesize\ttfamily int rwstrcmp (\begin{DoxyParamCaption}\item[{const wchar\+\_\+t $\ast$}]{s1,  }\item[{const wchar\+\_\+t $\ast$}]{s2,  }\item[{const size\+\_\+t}]{l1,  }\item[{const size\+\_\+t}]{l2 }\end{DoxyParamCaption})}
+
+Compares two given wide char strings alphabetically in reverse order, starting from the end of the strings
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em s1} & First string to compare \\
+\hline
+\mbox{\texttt{ in}}  & {\em s2} & Second string to compare\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Positive value if s1 \texorpdfstring{$>$}{>} s2, 0 if s1 == s2, negative value if s1 \texorpdfstring{$<$}{<} s2 ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{compare_8h_aadd12a11815bff55dbc68f3e9233ccda}\label{compare_8h_aadd12a11815bff55dbc68f3e9233ccda}} 
+\index{compare.h@{compare.h}!wIsAlpha@{wIsAlpha}}
+\index{wIsAlpha@{wIsAlpha}!compare.h@{compare.h}}
+\doxysubsubsection{\texorpdfstring{wIsAlpha()}{wIsAlpha()}}
+{\footnotesize\ttfamily int w\+Is\+Alpha (\begin{DoxyParamCaption}\item[{wchar\+\_\+t}]{c }\end{DoxyParamCaption})}
+
+Checks if the given wide character is alphabetic
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em c} & Wide character to check\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the character is alphabetic, 0 otherwise ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{compare_8h_a87cf4dcc4405f6a8c8c94269fb18c241}\label{compare_8h_a87cf4dcc4405f6a8c8c94269fb18c241}} 
+\index{compare.h@{compare.h}!wstrcmp@{wstrcmp}}
+\index{wstrcmp@{wstrcmp}!compare.h@{compare.h}}
+\doxysubsubsection{\texorpdfstring{wstrcmp()}{wstrcmp()}}
+{\footnotesize\ttfamily int wstrcmp (\begin{DoxyParamCaption}\item[{const wchar\+\_\+t $\ast$}]{s1,  }\item[{const wchar\+\_\+t $\ast$}]{s2 }\end{DoxyParamCaption})}
+
+Compares two given wide char strings alphabetically
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em s1} & First string to compare \\
+\hline
+\mbox{\texttt{ in}}  & {\em s2} & Second string to compare\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Positive value if s1 \texorpdfstring{$>$}{>} s2, 0 if s1 == s2, negative value if s1 \texorpdfstring{$<$}{<} s2 ~\newline
+ 
+\end{DoxyReturn}

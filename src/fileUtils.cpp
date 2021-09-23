@@ -49,7 +49,7 @@ char *cleanBuffer(const char *readBuf, const size_t bufSize, size_t *numCleanByt
     char *writeBuf = (char *)calloc(bufSize, sizeof(*writeBuf)); 
     if (writeBuf == nullptr) {
         printf("There was an error allocating memory : %s\n", strerror(errno));
-        return 0;
+        return nullptr;
     }
 
     for (size_t i = 0; i < bufSize - 1; ++i) {
