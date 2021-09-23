@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#include <string.h>
+#include <errno.h>
 
 #include "../include/fileUtils.h"
 #include "../include/split.h"
@@ -22,7 +24,7 @@ int main() {
     const char *sortedPath = "sorted.txt";
 
     if (cleanFile(filePath, cleanPath) == 0) {
-        printf("error\n");
+        printf("There was an error reading clean file path : %s\n", strerror(errno));
         return EXIT_FAILURE;
     } 
 
