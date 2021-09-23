@@ -31,13 +31,16 @@ int main() {
     }
 
     qsort(text.lines, text.numLines, sizeof(line), &lineCmp);
-    for (size_t i = 0; i < text.numLines; ++i) {
-        printf("%zu : %s\n", i, text.lines[i].ptr);
-    }
     if (writeLinesToFile(&text, sortedPath) != (int)text.numLines + 1) {
         freeText(&text);
         return EXIT_FAILURE;
     }
+    qsort(text.lines, text.numLines, sizeof(line), &rLineCmp);
+    if (writeLinesToFile(&text, sortedPath) != (int)text.numLines + 1) {
+        freeText(&text);
+        return EXIT_FAILURE;
+    }
+
 
     freeText(&text);
     return EXIT_SUCCESS; 
