@@ -8,16 +8,16 @@
 #include "../include/sort.h"
 
 int main() {
-    /*printf("This program reads all strings from a file, then prints them to standard output\n"
-            "Please enter a relative file path:\n");
+    printf("Please enter a relative file path to read the text from:\n");
+
     char filePath[64] = {};
-    if (scanf("%s", filePath) == EOF) {
+    if (scanf("%s", filePath) != 1) {
         printf("There was an error reading file path\n");
-        return 1;
-    }*/
+        return EXIT_FAILURE;
+    }
+
     setlocale(LC_ALL, "ru_RU.utf8");
 
-    const char *filePath = "onegin.txt";
     const char *cleanPath = "clean.txt";
     const char *sortedPath = "sorted.txt";
 
