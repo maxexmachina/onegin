@@ -1,7 +1,7 @@
-#include "../include/sort.h"
-
 #include <stdlib.h>
 #include <string.h>
+
+#include "sort.h"
 
 void swap(void *a, void *b, size_t size) {
     void *temp = calloc(1, size);

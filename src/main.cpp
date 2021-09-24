@@ -4,10 +4,10 @@
 #include <string.h>
 #include <errno.h>
 
-#include "../include/fileUtils.h"
-#include "../include/split.h"
-#include "../include/compare.h"
-#include "../include/sort.h"
+#include "fileUtils.h"
+#include "split.h"
+#include "compare.h"
+#include "sort.h"
 
 int main() {
     printf("Please enter a relative file path to read the text from:\n");

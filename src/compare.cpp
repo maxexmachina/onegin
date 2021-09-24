@@ -1,7 +1,7 @@
 #include <wchar.h>
 #include <stdlib.h>
 
-#include "../include/compare.h"
+#include "compare.h"
 
 wchar_t *lineToWCharStr(const line *l) {
     const size_t size = l->len + 1;
